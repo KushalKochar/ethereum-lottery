@@ -1,0 +1,100 @@
+<div id="page-loader" class="fade in" *ngIf="appObject.web3ServiceInstance.loader">
+  <span class="spinner">
+  </span>
+</div>
+
+<div class="row" *ngIf="appObject.web3ServiceInstance.isAdmin">
+  <div class="col-md-12">
+    <h3>Admin Section</h3>
+
+
+
+    <div style="clear:both">
+    </div>
+
+    <div class="col-md-3" style="padding-left: 20px;">
+      <button class="btn btn-success" type="button" (click)="endLottery()">End Lottery</button>
+    </div>
+
+    <!-- <div class="col-md-3" style="padding-left: 20px;">
+      <button class="btn btn-success" type="button" (click)="rescueInitialAmountIfNobodyPlayed()">Rescue initial amount</button>
+    </div> -->
+
+    <div class="col-md-3" style="padding-left: 20px;">
+      <button class="btn btn-success" type="button" *ngIf="isGameClosed" (click)="resetLottery()">Reset lottery</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>General Section</h3>
+
+    <div style="clear:both">
+    </div>
+    <div class="col-md-12" style="padding-left: 20px;">
+
+      <div class="col-md-3" style="padding-left: 0px;padding-top: 25px;">
+        <label for="SelectUser">Select User</label>
+        <select id="UserKeys" class="form-control" [(ngModel)]="appObject.web3ServiceInstance.selectedKeyPair" (ngModelChange)="selectedKeyPairChange()">
+          <option *ngFor="let r of appObject.web3ServiceInstance.publicAndPrivateKeys; let i = index" [ngValue]="r">{{r.name}}</option>
+        </select>
+      </div>
+      <div class="col-md-3" style="padding-left: 0px;padding-top: 25px;">
+        <label for="Enter Amount">Fixed Amount in wei</label>
+        <input readonly type="number" class="form-control" [(ngModel)]="selectedAmount" id="Ether Amount">
+      </div>
+
+      <div class="col-md-3" style="padding-left: 0px;padding-top: 50px;" >
+        <button class="btn btn-success"  type="button" *ngIf="!isGameClosed" (click)="buyLottery()">Buy Lottery</button>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>Loterry details</h3>
+
+    <div style="padding-left: 20px;">
+      <table id="wdpobliclearedreport-data-table" class="table table-bordered nowrap" cellspacing="0" width="100%">
+        <tbody>
+          <tr >
+            <td class="col-md-3"><b>No of Participants</b></td>
+            <td>{{participantsNo}}</td>
+          </tr>
+          <tr >
+            <td><b>Pot amount</b></td>
+            <td>{{potAmount}}</td>
+          </tr>
+          <!-- <tr >
+            <td><b>Minimum stake (in wei)</b></td>
+            <td>{{minStake}}</td>
+          </tr> -->
+          <tr >
+            <td><b>Winner</b></td>
+            <td>{{winner}}</td>
+          </tr>
+          <tr >
+            <td><b>Game closed?</b></td>
+            <td>{{isGameClosed}}</td>
+          </tr>
+          <!-- <tr >
+            <td><b>Admin address</b></td>
+            <td>{{adminAddress}}</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>

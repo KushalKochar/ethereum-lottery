@@ -1,0 +1,532 @@
+{
+  "contractName": "LotteryEventDefinitions",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "adr",
+          "type": "address"
+        }
+      ],
+      "name": "UserRegistrationEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "winner",
+          "type": "address"
+        }
+      ],
+      "name": "LotteryEnd",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "currentPot",
+          "type": "uint256"
+        }
+      ],
+      "name": "UserPutBets",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "name": "WinnerTookItAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "name": "WinnerFailedToTakeWin",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "someGuy",
+          "type": "address"
+        }
+      ],
+      "name": "SomeGuyTriedToTakeTheWinnings",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "name": "NobodyPlayedWithdrewInitialAmount",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820147e761270de6cc8ec1a0392da3d7818b30c5587ab6e47d72bd7edeaeaa34c600029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820147e761270de6cc8ec1a0392da3d7818b30c5587ab6e47d72bd7edeaeaa34c600029",
+  "sourceMap": "26:399:1:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:399:1:-;;;;;",
+  "source": "pragma solidity ^0.4.17;\n\ncontract LotteryEventDefinitions {\n    event UserRegistrationEvent(address adr);\n    event LotteryEnd(address winner);\n    event UserPutBets(address user, uint currentPot);\n\n\tevent WinnerTookItAll(string message);\n    event WinnerFailedToTakeWin(string message);\n    event SomeGuyTriedToTakeTheWinnings(string message, address someGuy);\n    event NobodyPlayedWithdrewInitialAmount(string message);\n}\n",
+  "sourcePath": "C:\\D Drive\\Kushal\\KryptoGuru\\1st Ethereum Project\\Truffle Proj\\contracts\\LotteryEventDefinitions.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/C/D Drive/Kushal/KryptoGuru/1st Ethereum Project/Truffle Proj/contracts/LotteryEventDefinitions.sol",
+      "exportedSymbols": {
+        "LotteryEventDefinitions": [
+          371
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 338,
+        "name": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            371
+          ],
+          "name": "LotteryEventDefinitions",
+          "scope": 372
+        },
+        "children": [
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "UserRegistrationEvent"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "adr",
+                      "scope": 342,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 339,
+                        "name": "ElementaryTypeName",
+                        "src": "93:7:1"
+                      }
+                    ],
+                    "id": 340,
+                    "name": "VariableDeclaration",
+                    "src": "93:11:1"
+                  }
+                ],
+                "id": 341,
+                "name": "ParameterList",
+                "src": "92:13:1"
+              }
+            ],
+            "id": 342,
+            "name": "EventDefinition",
+            "src": "65:41:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "LotteryEnd"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "winner",
+                      "scope": 346,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 343,
+                        "name": "ElementaryTypeName",
+                        "src": "128:7:1"
+                      }
+                    ],
+                    "id": 344,
+                    "name": "VariableDeclaration",
+                    "src": "128:14:1"
+                  }
+                ],
+                "id": 345,
+                "name": "ParameterList",
+                "src": "127:16:1"
+              }
+            ],
+            "id": 346,
+            "name": "EventDefinition",
+            "src": "111:33:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "UserPutBets"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "user",
+                      "scope": 352,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 347,
+                        "name": "ElementaryTypeName",
+                        "src": "167:7:1"
+                      }
+                    ],
+                    "id": 348,
+                    "name": "VariableDeclaration",
+                    "src": "167:12:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "currentPot",
+                      "scope": 352,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 349,
+                        "name": "ElementaryTypeName",
+                        "src": "181:4:1"
+                      }
+                    ],
+                    "id": 350,
+                    "name": "VariableDeclaration",
+                    "src": "181:15:1"
+                  }
+                ],
+                "id": 351,
+                "name": "ParameterList",
+                "src": "166:31:1"
+              }
+            ],
+            "id": 352,
+            "name": "EventDefinition",
+            "src": "149:49:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "WinnerTookItAll"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "message",
+                      "scope": 356,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 353,
+                        "name": "ElementaryTypeName",
+                        "src": "223:6:1"
+                      }
+                    ],
+                    "id": 354,
+                    "name": "VariableDeclaration",
+                    "src": "223:14:1"
+                  }
+                ],
+                "id": 355,
+                "name": "ParameterList",
+                "src": "222:16:1"
+              }
+            ],
+            "id": 356,
+            "name": "EventDefinition",
+            "src": "201:38:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "WinnerFailedToTakeWin"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "message",
+                      "scope": 360,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 357,
+                        "name": "ElementaryTypeName",
+                        "src": "272:6:1"
+                      }
+                    ],
+                    "id": 358,
+                    "name": "VariableDeclaration",
+                    "src": "272:14:1"
+                  }
+                ],
+                "id": 359,
+                "name": "ParameterList",
+                "src": "271:16:1"
+              }
+            ],
+            "id": 360,
+            "name": "EventDefinition",
+            "src": "244:44:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "SomeGuyTriedToTakeTheWinnings"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "message",
+                      "scope": 366,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 361,
+                        "name": "ElementaryTypeName",
+                        "src": "329:6:1"
+                      }
+                    ],
+                    "id": 362,
+                    "name": "VariableDeclaration",
+                    "src": "329:14:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "someGuy",
+                      "scope": 366,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 363,
+                        "name": "ElementaryTypeName",
+                        "src": "345:7:1"
+                      }
+                    ],
+                    "id": 364,
+                    "name": "VariableDeclaration",
+                    "src": "345:15:1"
+                  }
+                ],
+                "id": 365,
+                "name": "ParameterList",
+                "src": "328:33:1"
+              }
+            ],
+            "id": 366,
+            "name": "EventDefinition",
+            "src": "293:69:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "NobodyPlayedWithdrewInitialAmount"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "message",
+                      "scope": 370,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 367,
+                        "name": "ElementaryTypeName",
+                        "src": "407:6:1"
+                      }
+                    ],
+                    "id": 368,
+                    "name": "VariableDeclaration",
+                    "src": "407:14:1"
+                  }
+                ],
+                "id": 369,
+                "name": "ParameterList",
+                "src": "406:16:1"
+              }
+            ],
+            "id": 370,
+            "name": "EventDefinition",
+            "src": "367:56:1"
+          }
+        ],
+        "id": 371,
+        "name": "ContractDefinition",
+        "src": "26:399:1"
+      }
+    ],
+    "id": 372,
+    "name": "SourceUnit",
+    "src": "0:426:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-20T09:06:57.362Z"
+}
