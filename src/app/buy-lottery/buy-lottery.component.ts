@@ -41,22 +41,22 @@ export class BuyLotteryComponent implements OnInit {
 
 
 
-  getLotteryDetails1(){
+  // getLotteryDetails1(){
 
-    this.appObject.web3ServiceInstance.Lottery.then(function(temp1){
+  //   this.appObject.web3ServiceInstance.Lottery.then(function(temp1){
       
-      temp1.deployed().then(function(instance) {
-      this.participantsNo = instance.getNrOfParticipants.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-      this.potAmount = instance.getPot.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-      this.minStake = instance.getMinimumStakeInWei.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-      this.winner = instance.getWinner.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-      // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-      this.isGameClosed = instance.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    });
-  }); 
+  //     temp1.deployed().then(function(instance) {
+  //     this.participantsNo = instance.getNrOfParticipants.call({from: this.appObject.web3ServiceInstance.defaultAccount});    
+  //     this.potAmount = instance.getPot.call({from: this.appObject.web3ServiceInstance.defaultAccount});    
+  //     this.minStake = instance.getMinimumStakeInWei.call({from: this.appObject.web3ServiceInstance.defaultAccount});    
+  //     this.winner = instance.getWinner.call({from: this.appObject.web3ServiceInstance.defaultAccount});    
+  //     // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+  //     this.isGameClosed = instance.isGameClosed.call({from: this.appObject.web3ServiceInstance.defaultAccount});    
+  //   });
+  // }); 
     
 
-  }
+  // }
 
   async getLotteryDetails(){
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
@@ -64,9 +64,9 @@ export class BuyLotteryComponent implements OnInit {
     this.participantsNo = await deployedLottery.getNrOfParticipants.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
     this.potAmount = await deployedLottery.getPot.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
     this.minStake = await deployedLottery.getMinimumStakeInWei.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    var winnerAddress = await deployedLottery.getWinner.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+    this.winner = await deployedLottery.getWinner.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
 
-    this.winner = this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress)? this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress).name : "None";
+    // this.winner = this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress)? this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress).name : "None";
 
     // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
     this.isGameClosed = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
@@ -78,7 +78,7 @@ export class BuyLotteryComponent implements OnInit {
 
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
     console.log("deployedMetaCoin", deployedLottery);
-    const transaction = await deployedLottery.endLottery.sendTransaction({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+    const transaction = await deployedLottery.endLottery.sendTransaction({from: this.appObject.web3ServiceInstance.account});    
 
     
     console.log("transaction", transaction);
@@ -92,7 +92,7 @@ export class BuyLotteryComponent implements OnInit {
 
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
     console.log("deployedMetaCoin", deployedLottery);
-    const transaction = await deployedLottery.resetLottery(1000000000000,{from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey, value: 0});
+    const transaction = await deployedLottery.resetLottery(1000000000000,{from: this.appObject.web3ServiceInstance.account, value: 0});
 
     
     console.log("transaction", transaction);
@@ -140,7 +140,7 @@ export class BuyLotteryComponent implements OnInit {
 
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
     console.log("deployedMetaCoin", deployedLottery);
-    const transaction = await deployedLottery.placeBets.sendTransaction({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey, value: this.selectedAmount});    
+    const transaction = await deployedLottery.placeBets.sendTransaction({from: this.appObject.web3ServiceInstance.account, value: this.selectedAmount});    
 
     
     console.log("transaction", transaction);

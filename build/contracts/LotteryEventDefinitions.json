@@ -107,7 +107,7 @@
       "absolutePath": "/C/D Drive/Kushal/KryptoGuru/1st Ethereum Project/Truffle Proj/contracts/LotteryEventDefinitions.sol",
       "exportedSymbols": {
         "LotteryEventDefinitions": [
-          371
+          379
         ]
       }
     },
@@ -121,7 +121,7 @@
             ".17"
           ]
         },
-        "id": 338,
+        "id": 346,
         "name": "PragmaDirective",
         "src": "0:24:1"
       },
@@ -137,10 +137,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            371
+            379
           ],
           "name": "LotteryEventDefinitions",
-          "scope": 372
+          "scope": 380
         },
         "children": [
           {
@@ -156,7 +156,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "adr",
-                      "scope": 342,
+                      "scope": 350,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -169,22 +169,22 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 339,
+                        "id": 347,
                         "name": "ElementaryTypeName",
                         "src": "93:7:1"
                       }
                     ],
-                    "id": 340,
+                    "id": 348,
                     "name": "VariableDeclaration",
                     "src": "93:11:1"
                   }
                 ],
-                "id": 341,
+                "id": 349,
                 "name": "ParameterList",
                 "src": "92:13:1"
               }
             ],
-            "id": 342,
+            "id": 350,
             "name": "EventDefinition",
             "src": "65:41:1"
           },
@@ -201,7 +201,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "winner",
-                      "scope": 346,
+                      "scope": 354,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -214,22 +214,22 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 343,
+                        "id": 351,
                         "name": "ElementaryTypeName",
                         "src": "128:7:1"
                       }
                     ],
-                    "id": 344,
+                    "id": 352,
                     "name": "VariableDeclaration",
                     "src": "128:14:1"
                   }
                 ],
-                "id": 345,
+                "id": 353,
                 "name": "ParameterList",
                 "src": "127:16:1"
               }
             ],
-            "id": 346,
+            "id": 354,
             "name": "EventDefinition",
             "src": "111:33:1"
           },
@@ -246,7 +246,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "user",
-                      "scope": 352,
+                      "scope": 360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -259,12 +259,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 347,
+                        "id": 355,
                         "name": "ElementaryTypeName",
                         "src": "167:7:1"
                       }
                     ],
-                    "id": 348,
+                    "id": 356,
                     "name": "VariableDeclaration",
                     "src": "167:12:1"
                   },
@@ -273,7 +273,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "currentPot",
-                      "scope": 352,
+                      "scope": 360,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -286,22 +286,22 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 349,
+                        "id": 357,
                         "name": "ElementaryTypeName",
                         "src": "181:4:1"
                       }
                     ],
-                    "id": 350,
+                    "id": 358,
                     "name": "VariableDeclaration",
                     "src": "181:15:1"
                   }
                 ],
-                "id": 351,
+                "id": 359,
                 "name": "ParameterList",
                 "src": "166:31:1"
               }
             ],
-            "id": 352,
+            "id": 360,
             "name": "EventDefinition",
             "src": "149:49:1"
           },
@@ -318,7 +318,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "message",
-                      "scope": 356,
+                      "scope": 364,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -331,22 +331,22 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 353,
+                        "id": 361,
                         "name": "ElementaryTypeName",
                         "src": "223:6:1"
                       }
                     ],
-                    "id": 354,
+                    "id": 362,
                     "name": "VariableDeclaration",
                     "src": "223:14:1"
                   }
                 ],
-                "id": 355,
+                "id": 363,
                 "name": "ParameterList",
                 "src": "222:16:1"
               }
             ],
-            "id": 356,
+            "id": 364,
             "name": "EventDefinition",
             "src": "201:38:1"
           },
@@ -363,7 +363,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "message",
-                      "scope": 360,
+                      "scope": 368,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -376,22 +376,22 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 357,
+                        "id": 365,
                         "name": "ElementaryTypeName",
                         "src": "272:6:1"
                       }
                     ],
-                    "id": 358,
+                    "id": 366,
                     "name": "VariableDeclaration",
                     "src": "272:14:1"
                   }
                 ],
-                "id": 359,
+                "id": 367,
                 "name": "ParameterList",
                 "src": "271:16:1"
               }
             ],
-            "id": 360,
+            "id": 368,
             "name": "EventDefinition",
             "src": "244:44:1"
           },
@@ -408,7 +408,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "message",
-                      "scope": 366,
+                      "scope": 374,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -421,12 +421,12 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 361,
+                        "id": 369,
                         "name": "ElementaryTypeName",
                         "src": "329:6:1"
                       }
                     ],
-                    "id": 362,
+                    "id": 370,
                     "name": "VariableDeclaration",
                     "src": "329:14:1"
                   },
@@ -435,7 +435,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "someGuy",
-                      "scope": 366,
+                      "scope": 374,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -448,22 +448,22 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 363,
+                        "id": 371,
                         "name": "ElementaryTypeName",
                         "src": "345:7:1"
                       }
                     ],
-                    "id": 364,
+                    "id": 372,
                     "name": "VariableDeclaration",
                     "src": "345:15:1"
                   }
                 ],
-                "id": 365,
+                "id": 373,
                 "name": "ParameterList",
                 "src": "328:33:1"
               }
             ],
-            "id": 366,
+            "id": 374,
             "name": "EventDefinition",
             "src": "293:69:1"
           },
@@ -480,7 +480,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "message",
-                      "scope": 370,
+                      "scope": 378,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -493,32 +493,32 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 367,
+                        "id": 375,
                         "name": "ElementaryTypeName",
                         "src": "407:6:1"
                       }
                     ],
-                    "id": 368,
+                    "id": 376,
                     "name": "VariableDeclaration",
                     "src": "407:14:1"
                   }
                 ],
-                "id": 369,
+                "id": 377,
                 "name": "ParameterList",
                 "src": "406:16:1"
               }
             ],
-            "id": 370,
+            "id": 378,
             "name": "EventDefinition",
             "src": "367:56:1"
           }
         ],
-        "id": 371,
+        "id": 379,
         "name": "ContractDefinition",
         "src": "26:399:1"
       }
     ],
-    "id": 372,
+    "id": 380,
     "name": "SourceUnit",
     "src": "0:426:1"
   },
@@ -528,5 +528,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-20T09:06:57.362Z"
+  "updatedAt": "2018-02-23T00:58:00.351Z"
 }

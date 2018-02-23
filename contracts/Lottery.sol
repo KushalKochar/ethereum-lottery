@@ -121,6 +121,10 @@ contract Lottery is LotteryEventDefinitions {
         return winner;
     }
 
+    function getAdmin() public constant returns (address) {
+        return admin;
+    }
+
     function getParticipants() public constant returns (address[]) {
         return participants;
     }

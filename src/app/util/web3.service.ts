@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import Web3 from 'web3';
+import { default as Web3} from 'web3';
 import {default as contract} from 'truffle-contract';
 import {Subject} from 'rxjs/Rx';
 import lottery_artifacts from '../../../build/contracts/Lottery.json';
@@ -14,8 +14,10 @@ export class KeyPair{
 
 @Injectable()
 export class Web3Service {
-  private web3: Web3;
+  public web3: Web3;
   private accounts: string[];
+  public account: string;
+  public defaultAccount: string;
   public ready = false;
   public Lottery: any;
   public accountsObservable = new Subject<string[]>();
@@ -36,6 +38,7 @@ export class Web3Service {
     this.selectedKeyPair = this.publicAndPrivateKeys[0];
     this.isAdmin = true;
     this.loader = true;
+    this.defaultAccount = "0x28Da796Ac6B3b6C228a0fbf74C6CE37614Acc289";
     
     window.addEventListener('load', (event) => {
       this.bootstrapWeb3();
@@ -45,23 +48,26 @@ export class Web3Service {
   
 
   public bootstrapWeb3() {
-    // // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-    // console.log("this is window.web3 : ", window.web3);
-    // if (typeof window.web3 !== 'undefined') {
-    //   // Use Mist/MetaMask's provider
-    //   this.web3 = new Web3(window.web3.currentProvider);
-    // } else {
-    //   console.log('No web3? You should consider trying MetaMask!');
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    console.log("this is window.web3 : ", window.web3);
+    if (typeof window.web3 !== 'undefined') {
+      // Use Mist/MetaMask's provider
+      this.web3 = new Web3(window.web3.currentProvider);
+      // this.web3.eth.defaultAccount = window.web3.eth.accounts[0];
+    } else {
+      console.log('No web3? You should consider trying MetaMask!');
 
-    //   // Hack to provide backwards compatibility for Truffle, which uses web3js 0.20.x
-    //   Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
-    //   // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    //   this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:9545'));
-    // }
-
+      // Hack to provide backwards compatibility for Truffle, which uses web3js 0.20.x
+      Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
+      // this.web3.eth.defaultAccount = window.web3.eth.accounts[0];
+      // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+      this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:9545'));
+    }
     
 
-    this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:9545'));
+    // this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:9545'));
+
+    console.log("this.web is : ", this.web3);
 
 
     this.artifactsToContract(lottery_artifacts)
@@ -96,7 +102,34 @@ export class Web3Service {
     }
 
     console.log('contractAbstraction is :', contractAbstraction);
+
+
+    contractAbstraction.setProvider(this.web3.currentProvider);
+    contractAbstraction.at("0xdfba40b21e03f6fd7a235d12270ab40cea04de9b");
+
+    // Get the initial account balance so it can be displayed.
+    this.web3.eth.getAccounts((err, accs) => {
+      if (err != null) {
+        alert('There was an error fetching your accounts.');
+        return;
+      }
+
+      if (accs.length === 0) {
+        alert(
+          'Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.'
+        );
+        return;
+      }
+      this.accounts = accs;
+      console.log("accounts are : ", this.accounts);
+      this.account = this.accounts[0];
+    });
+
     return contractAbstraction;
+
+  }
+
+  private tempMethod(){
 
   }
 
