@@ -28,10 +28,10 @@ export class BuyLotteryComponent implements OnInit {
       
     // }
 
-    setTimeout(() => {
-      console.log("timeout");
-    },50000)
-    this.getLotteryDetails();
+    // setTimeout(() => {
+    //   console.log("timeout");
+    // },50000)
+    // this.getLotteryDetails();
     
    }
 
@@ -70,6 +70,10 @@ export class BuyLotteryComponent implements OnInit {
 
     // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
     this.isGameClosed = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+  }
+
+  async refreshDetails(){
+    this.getLotteryDetails();
   }
 
   async endLottery(){
