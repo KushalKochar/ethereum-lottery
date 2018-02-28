@@ -61,15 +61,15 @@ export class BuyLotteryComponent implements OnInit {
   async getLotteryDetails(){
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
     
-    this.participantsNo = await deployedLottery.getNrOfParticipants.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    this.potAmount = await deployedLottery.getPot.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    this.minStake = await deployedLottery.getMinimumStakeInWei.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    this.winner = await deployedLottery.getWinner.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+    deployedLottery.getNrOfParticipants.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.participantsNo = value});    
+    deployedLottery.getPot.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.potAmount = value});    
+    deployedLottery.getMinimumStakeInWei.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.minStake = value});    
+    deployedLottery.getWinner.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.winner = value});    
 
     // this.winner = this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress)? this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress).name : "None";
 
     // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
-    this.isGameClosed = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
+    deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.isGameClosed = value});    
   }
 
   async refreshDetails(){
