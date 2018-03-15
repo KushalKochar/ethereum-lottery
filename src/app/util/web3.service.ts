@@ -28,21 +28,17 @@ export class Web3Service {
 
   constructor() {
     this.publicAndPrivateKeys = [
-      {publicKey: '0x627306090abab3a6e1400e9345bc60c78a8bef57',privateKey: 'c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3', name: 'User1'},
-      {publicKey: '0xf17f52151ebef6c7334fad080c5704d77216b732',privateKey: 'ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f', name: 'User2'},
-      {publicKey: '0xc5fdf4076b8f3a5357c5e395ab970b5b54098fef',privateKey: '0dbbe8e4ae425a6d2687f1a7e3ba17bc98c673636790f1b8ad91193c05875ef1', name: 'User3'},
-      {publicKey: '0x821aea9a577a9b44299b9c15c88cf3087f3b5544',privateKey: 'c88b703fb08cbea894b6aeff5a544fb92e78a18e19814cd85da83b71f772aa6c', name: 'User4'},
-      {publicKey: '0x0d1d4e623d10f9fba5db95830f7d3839406c6af2',privateKey: '388c684f0ba1ef5017716adb5d21a053ea8e90277d0868337519f97bede61418', name: 'User5'},
-      {publicKey: '0x2932b7a2355d6fecc4b5c0b6bd44cc31df247a2e',privateKey: '659cbb0e2411a44db63778987b1e22153c086a95eb6b18bdf89de078917abc63', name: 'User6'}
+      {publicKey: '0x28Da796Ac6B3b6C228a0fbf74C6CE37614Acc289',privateKey: 'NOT_REQUIRED', name: 'User1'}
     ];
     this.selectedKeyPair = this.publicAndPrivateKeys[0];
-    this.isAdmin = true;
+    this.isAdmin = false;
     this.loader = true;
     this.defaultAccount = "0x28Da796Ac6B3b6C228a0fbf74C6CE37614Acc289";
+    // this.bootstrapWeb3();
     
-    window.addEventListener('load', (event) => {
-      this.bootstrapWeb3();
-    });
+    // window.addEventListener('load', (event) => {
+    //   this.bootstrapWeb3();
+    // });
   }
 
   
@@ -53,7 +49,7 @@ export class Web3Service {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
       this.web3 = new Web3(window.web3.currentProvider);
-      // this.web3.eth.defaultAccount = window.web3.eth.accounts[0];
+
     } else {
       console.log('No web3? You should consider trying MetaMask!');
 
@@ -105,7 +101,7 @@ export class Web3Service {
 
 
     contractAbstraction.setProvider(this.web3.currentProvider);
-    contractAbstraction.at("0xdfba40b21e03f6fd7a235d12270ab40cea04de9b");
+    contractAbstraction.at("0x00984bbb64d84f8fcbad9d8d8bb5663c3cbb1b92");
 
     // Get the initial account balance so it can be displayed.
     this.web3.eth.getAccounts((err, accs) => {
@@ -123,13 +119,22 @@ export class Web3Service {
       this.accounts = accs;
       console.log("accounts are : ", this.accounts);
       this.account = this.accounts[0];
+      console.log("this account is : ", this.account);
+      this.isAdminOrNot();
     });
 
     return contractAbstraction;
 
   }
 
-  private tempMethod(){
+  private isAdminOrNot(){
+    if( this.account.toLowerCase() === "0x661157a9148f400973517b609d4436dec9c54c82"){
+      this.isAdmin = true;
+      console.log("inside true");
+    }else{
+      console.log("inside false");
+      this.isAdmin = false;
+    }
 
   }
 
@@ -155,6 +160,7 @@ export class Web3Service {
 
         this.accountsObservable.next(accs);
         this.accounts = accs;
+        
       }
 
       this.ready = true;

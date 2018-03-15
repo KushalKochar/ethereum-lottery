@@ -19,11 +19,14 @@ export class BuyLotteryComponent implements OnInit {
   public winner: string;
   public adminAddress: string;
   public isGameClosed: boolean;
+  // public temp: boolean;
   
 
   constructor(public appObject : AppService) {
     this.selectedAmount = 1000000000000 ;
     console.log("the appobject is :", this.appObject);
+    this.appObject.web3ServiceInstance.bootstrapWeb3();
+    this.getLotteryDetails();
     // while(this.appObject.web3ServiceInstance.loader){
       
     // }
@@ -36,6 +39,8 @@ export class BuyLotteryComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    // this.selectedKeyPairChange();
     
   }
 
@@ -68,8 +73,8 @@ export class BuyLotteryComponent implements OnInit {
 
     // this.winner = this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress)? this.appObject.web3ServiceInstance.publicAndPrivateKeys.find(a => a.publicKey==winnerAddress).name : "None";
 
-    // this.adminAddress = await deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.selectedKeyPair.publicKey});    
     deployedLottery.isGameClosed.call({from: this.appObject.web3ServiceInstance.account}).then(value => {this.isGameClosed = value});    
+    // this.selectedKeyPairChange();
   }
 
   async refreshDetails(){
@@ -82,7 +87,7 @@ export class BuyLotteryComponent implements OnInit {
 
     const deployedLottery = await this.appObject.web3ServiceInstance.Lottery.deployed();
     console.log("deployedMetaCoin", deployedLottery);
-    const transaction = await deployedLottery.endLottery.sendTransaction({from: this.appObject.web3ServiceInstance.account});    
+    const transaction = await deployedLottery.endLottery({from: this.appObject.web3ServiceInstance.account, value: 0});    
 
     
     console.log("transaction", transaction);
@@ -152,7 +157,8 @@ export class BuyLotteryComponent implements OnInit {
   }
 
   selectedKeyPairChange(){
-    if(this.appObject.web3ServiceInstance.selectedKeyPair == this.appObject.web3ServiceInstance.publicAndPrivateKeys[0]){
+    console.log("inside key pari : accout is : ", this.appObject.web3ServiceInstance.account);
+    if( this.appObject.web3ServiceInstance.account.toLowerCase() === "0x661157a9148f400973517b609d4436dec9c54c82"){
       this.appObject.web3ServiceInstance.isAdmin = true;
       console.log("inside true");
     }else{
@@ -161,7 +167,7 @@ export class BuyLotteryComponent implements OnInit {
     }
     
     console.log("seleccted key pair is : ", this.appObject.web3ServiceInstance.selectedKeyPair);
-    this.getLotteryDetails();
+    // this.getLotteryDetails();
   }
 
 }
